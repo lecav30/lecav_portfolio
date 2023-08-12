@@ -1,0 +1,9 @@
+:root {
+  --primary-font: "Dosis", sans-serif;
+  --secondary-font: "Concert One", cursive;
+}
+
+html,
+body {
+  font-family: var(--primary-font);
+}
