@@ -1,6 +1,8 @@
 :root {
   --primary-font: "Dosis", sans-serif;
   --secondary-font: "Concert One", cursive;
+
+  --main-color: #6600ff;
 }
 
 html,

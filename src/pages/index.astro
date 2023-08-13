@@ -21,18 +21,22 @@ import * as Icon from 'astro-feather-icons'
     <header
       class="header fixed top-0 left-0 right-0 h-20 md:rounded-2xl flex justify-between items-center md:mx-6 md:mt-2 px-8 backdrop-blur-md md:shadow-lg"
     >
-      <div class="logo font-semibold text-2xl">SL</div>
+      <div class="logo text-2xl">SL</div>
       <Icon.Menu class="bars block cursor-pointer md:hidden" />
       <nav
         id="navbar"
-        class="navbar absolute top-20 left-0 h-0 w-screen overflow-hidden bg-white md:bg-inherit md:static md:w-auto md:h-auto"
+        class="navbar absolute top-20 left-0 h-0 w-screen overflow-hidden bg-white md:bg-inherit md:static md:w-auto md:h-auto md:overflow-visible"
       >
         <ul
           class="flex flex-col items-center justify-around gap-8 md:opacity-100 md:flex md:flex-row md:gap-20 font-semibold text-xl"
         >
-          <il><a class="mb-5 md:mb-0" href="/">Home</a></il>
-          <il><a class="mb-5 md:mb-0" href="#services">Services</a></il>
-          <il><a class="mb-5 md:mb-0" href="#contact">Contact</a></il>
+          <li>
+            <a class="scrollto active mb-5 md:mb-0" href="#hero">Home</a>
+          </li>
+          <li>
+            <a class="scrollto mb-5 md:mb-0" href="#services">Services</a>
+          </li>
+          <li><a class="scrollto mb-5 md:mb-0" href="#contact">Contact</a></li>
         </ul>
       </nav>
     </header>
@@ -43,7 +47,7 @@ import * as Icon from 'astro-feather-icons'
       >
         <div class="introduce flex flex-col items-center w-full md:w-4/12">
           <h1 class="text-4xl md:text-5xl font-bold">
-            Hi, I'm <span class="text-primary">Sebastian Levano</span>
+            Hi, I'm Sebastian Levano
           </h1>
           <h3 class="italic text-2xl mt-4">
             Software Engeneering Student at
@@ -70,6 +74,21 @@ import * as Icon from 'astro-feather-icons'
   /* ----------------------------------------------------------------------------
   ----------------------------------- Header ------------------------------------
   ---------------------------------------------------------------------------- */
+
+  .logo {
+    font-family: var(--secondary-font);
+  }
+
+  .navbar ul li a.active,
+  .navbar ul li a:hover {
+    border-bottom: 0.3rem solid var(--main-color);
+    border-radius: 0 0 2px 2px;
+  }
+
+  .navbar ul li a {
+    transition: border-bottom 0.2s ease-out;
+  }
+
   @media (max-width: 768px) {
     .header.show-nav {
       backdrop-filter: blur(0);
@@ -107,4 +126,47 @@ import * as Icon from 'astro-feather-icons'
     navbar.classList.toggle("active");
     header.classList.toggle("show-nav");
   });
+
+  const onscroll = (el, listener) => {
+    el.addEventListener("scroll", listener);
+  };
+
+  let navbar_links = select(".scrollto", true);
+
+  const close_navbar = () => {
+    navbar_links.forEach((navbar_link) => {
+      navbar_link.addEventListener("click", () => {
+        let navbar = select(".navbar");
+        let header = select(".header");
+        navbar.classList.remove("active");
+        header.classList.remove("show-nav");
+      });
+    });
+  };
+
+  close_navbar();
+
+  const navbar_links_active = () => {
+    let position = window.scrollY + 200;
+
+    navbar_links.forEach((navbar_link) => {
+      if (!navbar_link.hash) return;
+
+      let section = select(navbar_link.hash);
+
+      if (!section) return;
+
+      if (
+        position >= section.offsetTop &&
+        position <= section.offsetTop + section.offsetHeight
+      ) {
+        navbar_link.classList.add("active");
+      } else {
+        navbar_link.classList.remove("active");
+      }
+    });
+  };
+
+  window.addEventListener("load", navbar_links_active);
+  onscroll(document, navbar_links_active);
 </script>
