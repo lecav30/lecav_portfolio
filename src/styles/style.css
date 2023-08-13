@@ -6,4 +6,5 @@
 html,
 body {
   font-family: var(--primary-font);
+  min-width: 320px;
 }
