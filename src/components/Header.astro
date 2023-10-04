@@ -1,0 +1,76 @@
+---
+import * as Icon from "astro-feather-icons";
+---
+
+<div class="logo text-2xl">SL</div>
+<Icon.Menu class="bars block cursor-pointer md:hidden" />
+<nav
+  id="navbar"
+  class="navbar absolute top-20 left-0 h-0 w-screen overflow-hidden bg-white md:bg-inherit md:static md:w-auto md:h-auto md:overflow-visible"
+>
+  <ul
+    class="flex flex-col items-center justify-around gap-8 md:opacity-100 md:flex md:flex-row md:gap-20 font-semibold text-xl"
+  >
+    <li>
+      <a class="scrollto active mb-5 md:mb-0" href="#hero">Home</a>
+    </li>
+    <li>
+      <a class="scrollto mb-5 md:mb-0" href="#services">Services</a>
+    </li>
+    <li><a class="scrollto mb-5 md:mb-0" href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<style>
+  .logo {
+    font-family: var(--secondary-font);
+  }
+
+  .navbar ul li a.active,
+  .navbar ul li a:hover {
+    border-bottom: 0.3rem solid var(--main-color);
+    border-radius: 0 0 2px 2px;
+  }
+
+  .navbar ul li a {
+    transition: border-bottom 0.2s ease-out;
+  }
+
+  @media (max-width: 768px) {
+    @keyframes show-navbar {
+      0% {
+        height: 0;
+      }
+      100% {
+        height: 100vh;
+      }
+    }
+
+    @keyframes hide-navbar {
+      0% {
+        height: 100vh;
+      }
+      100% {
+        height: 0;
+      }
+    }
+
+    .header.show-nav {
+      backdrop-filter: blur(0);
+      background-color: #fff;
+    }
+
+    .navbar.hide {
+      animation: hide-navbar 0.3s ease-in-out;
+    }
+
+    .navbar.active {
+      height: 100vh;
+      animation: show-navbar 0.3s ease-in-out;
+    }
+
+    .navbar.active ul {
+      opacity: 1;
+    }
+  }
+</style>
