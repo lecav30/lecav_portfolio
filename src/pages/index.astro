@@ -2,9 +2,10 @@
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
+import Services from "../components/Services.astro";
 ---
 
-<Layout title="">
+<Layout title="Lecav's Portfolio">
   <header
     class="header fixed top-0 left-0 right-0 h-20 md:rounded-2xl flex justify-between items-center md:mx-6 md:mt-2 px-8 backdrop-blur-md md:shadow-lg"
   >
@@ -13,11 +14,16 @@ import Hero from "../components/Hero.astro";
   <main>
     <section
       id="hero"
-      class="flex flex-col justify-end gap-16 md:gap-8 md:justify-normal md:mx-10 lg:mx-0 lg:justify-evenly items-center h-screen md:flex-row"
+      class="flex flex-col justify-end gap-16 items-center h-screen md:h-screen md:gap-8 md:justify-normal md:mx-10 md:flex-row lg:mx-0 lg:justify-evenly"
     >
       <Hero />
     </section>
-    <section id="services"></section>
+    <section
+      id="services"
+      class="flex flex-col justify-around gap-8 items-center mt-8 md:h-screen md:flex-row"
+    >
+      <Services />
+    </section>
     <section id="contact"></section>
   </main>
 </Layout>
