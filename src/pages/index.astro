@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import Services from "../components/Services.astro";
+import Contact from "../components/Contact.astro";
 ---
 
 <Layout title="Lecav's Portfolio">
@@ -24,7 +25,9 @@ import Services from "../components/Services.astro";
     >
       <Services />
     </section>
-    <section id="contact"></section>
+    <section id="contact" class="flex flex-col justify-center h-screen">
+      <Contact />
+    </section>
   </main>
 </Layout>
 

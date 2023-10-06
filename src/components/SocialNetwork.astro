@@ -1,0 +1,9 @@
+---
+export interface Props {
+  url: string;
+}
+
+const { url } = Astro.props;
+---
+
+<a href={url} target="_blank" class="btn btn-primary"><slot /></a>

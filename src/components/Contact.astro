@@ -1,0 +1,59 @@
+---
+import SocialNetwork from "./SocialNetwork.astro";
+import * as Icon from "astro-feather-icons";
+---
+
+<article class="flex">
+  <aside class="flex flex-col gap-12 justify-center items-center w-6/12">
+    <h1 class="text-4xl text-[--main-color]">Send me a message!</h1>
+    <h2 class="text-xl w-5/6 text-center">
+      Contact me without fear and let's create something great!
+    </h2>
+    <div class="flex flex-row gap-16" id="social-networks">
+      <SocialNetwork url="mailto:lecav30@outlook.com">
+        <Icon.Mail />
+      </SocialNetwork>
+      <SocialNetwork url="https://www.linkedin.com/in/sebastianlev/">
+        <Icon.Linkedin />
+      </SocialNetwork>
+      <SocialNetwork url="https://github.com/lecav30">
+        <Icon.GitHub />
+      </SocialNetwork>
+      <SocialNetwork url="https://www.instagram.com/sebastian_lev9/">
+        <Icon.Instagram />
+      </SocialNetwork>
+    </div>
+  </aside>
+  <form class="w-6/12 flex flex-col gap-6 md:gap-12 items-center">
+    <div class="flex gap-12 md:gap-24 w-5/6">
+      <div class="flex flex-col w-2/4">
+        <label for="name">Name</label>
+        <input
+          class="border-b-2 border-black"
+          type="text"
+          id="name"
+          name="name"
+        />
+      </div>
+      <div class="flex flex-col w-2/4">
+        <label for="email">Email</label>
+        <input
+          class="border-b-2 border-black"
+          type="email"
+          id="email"
+          name="email"
+        />
+      </div>
+    </div>
+    <div class="flex flex-col w-10/12">
+      <label for="message">Message</label>
+      <textarea class="border-b-2 border-black" id="message" name="message"
+      ></textarea>
+    </div>
+    <input
+      class="w-4/6 md:w-3/6 bg-[--main-color] text-white font-bold rounded-lg h-10"
+      type="submit"
+      value="Submit"
+    />
+  </form>
+</article>

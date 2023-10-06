@@ -1,9 +1,9 @@
 ---
-import * as Icon from "astro-feather-icons";
+import MenuIcon from "astro-feather-icons/Menu";
 ---
 
 <div class="logo text-2xl">SL</div>
-<Icon.Menu class="bars block cursor-pointer md:hidden" />
+<MenuIcon class="bars block cursor-pointer md:hidden" />
 <nav
   id="navbar"
   class="navbar absolute top-20 left-0 h-0 w-screen overflow-hidden bg-white md:bg-inherit md:static md:w-auto md:h-auto md:overflow-visible"
@@ -28,7 +28,7 @@ import * as Icon from "astro-feather-icons";
 
   .navbar ul li a.active,
   .navbar ul li a:hover {
-    border-bottom: 0.3rem solid var(--main-color);
+    border-bottom: 0.2rem solid var(--main-color);
     border-radius: 0 0 2px 2px;
   }
 
