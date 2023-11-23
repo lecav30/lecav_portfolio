@@ -1,5 +1,5 @@
 :root {
-  --primary-font: "Dosis", sans-serif;
+  --primary-font: "Source Code Pro", monospace;
 
   --main-color: #6600ff;
 }
@@ -8,4 +8,8 @@ html,
 body {
   font-family: var(--primary-font);
   min-width: 320px;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

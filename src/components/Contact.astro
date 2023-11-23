@@ -7,8 +7,10 @@ import * as Icon from "astro-feather-icons";
   <aside
     class="flex flex-col gap-12 justify-center items-center w-full lg:w-6/12"
   >
-    <h1 class="text-4xl text-[--main-color]">Send me a message!</h1>
-    <h2 class="text-xl w-5/6 text-center">
+    <h1 class="text-2xl md:text-4xl text-[--main-color] font-bold text-center">
+      Send me a message!
+    </h1>
+    <h2 class="md:text-xl w-5/6 text-center">
       Contact me without fear and let's create something great!
     </h2>
     <div class="flex flex-row gap-16" id="social-networks">
@@ -39,7 +41,10 @@ import * as Icon from "astro-feather-icons";
     </div>
     <div class="flex flex-col w-10/12">
       <label for="message">Message</label>
-      <textarea class="input-style resize-y" id="message" name="message"
+      <textarea
+        class="input-style resize-y"
+        id="message"
+        name="message"
       ></textarea>
     </div>
     <input
