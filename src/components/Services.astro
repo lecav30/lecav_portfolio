@@ -1,8 +1,9 @@
 ---
-import Card from "./Card.astro";
+import Card from "./Card.tsx";
 ---
 
 <Card
+  client:load
   title="Frontend Development"
   imageUrl="src/assets/image/frontend.png"
   altImage="Image of frontend develop from srip"
@@ -17,6 +18,7 @@ import Card from "./Card.astro";
   ]}
 />
 <Card
+  client:load
   title="Backend Development"
   imageUrl="src/assets/image/backend.png"
   altImage="Image of backend develop from Justicon"
@@ -30,6 +32,7 @@ import Card from "./Card.astro";
   ]}
 />
 <Card
+  client:load
   title="Mobile Development"
   imageUrl="src/assets/image/mobile.png"
   altImage="Image of frontend develop from feen"
