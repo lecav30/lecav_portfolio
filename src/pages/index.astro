@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import Services from "../components/Services.astro";
+import Experience from "../components/Experience.astro";
 import Contact from "../components/Contact.astro";
 ---
 
@@ -24,6 +25,12 @@ import Contact from "../components/Contact.astro";
       class="flex flex-col justify-around gap-8 items-center mt-8 md:h-screen md:flex-row"
     >
       <Services />
+    </section>
+    <section
+      id="experience"
+      class="flex justify-center items-center md:h-screen"
+    >
+      <Experience />
     </section>
     <section id="contact" class="flex flex-col justify-center h-screen">
       <Contact />
