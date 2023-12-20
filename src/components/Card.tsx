@@ -22,8 +22,9 @@ const Card: FC<Props> = (props) => {
 
   return (
     <div
-      className="card p-4 rounded-xl shadow-lg md:w-3/12 hover:border-[#6600FF]
-      hover:border-s-4 hover:border-b-[3px] min-h-[300px] max-w-[310px] md:max-w-none relative"
+      className="p-4 rounded-xl shadow-lg md:w-1/4 hover:border-[#6600FF]
+      hover:border-s-4 hover:border-b-[3px] min-h-[300px] min-w-[240px] max-w-[310px]
+      md:max-w-none relative"
     >
       <button onClick={handleShowAbout} className="w-8 absolute top-4 right-4">
         <img src="src/assets/svg/information.svg" alt="Information" />

@@ -1,35 +1,18 @@
----
-import SocialNetwork from "./SocialNetwork.astro";
-import * as Icon from "astro-feather-icons";
----
-
 <article class="flex flex-col gap-12 lg:gap-0 lg:flex-row">
   <aside
-    class="flex flex-col gap-12 justify-center items-center w-full lg:w-6/12"
+    class="flex flex-col gap-12 justify-center items-center lg:items-start w-full lg:w-6/12"
   >
-    <h1 class="text-2xl md:text-4xl text-[--main-color] font-bold text-center">
+    <h1 class="text-2xl md:text-4xl text-[--main-color] font-bold text-center lg:text-start">
       Send me a message!
     </h1>
-    <h2 class="md:text-xl w-5/6 text-center">
-      Contact me without fear and let's create something great!
+    <h2 class="md:text-xl w-5/6 text-center lg:text-start">
+      Contact me if you need my services and let's create something great!
     </h2>
-    <div class="flex flex-row gap-16" id="social-networks">
-      <SocialNetwork url="mailto:lecav30@outlook.com">
-        <Icon.Mail />
-      </SocialNetwork>
-      <SocialNetwork url="https://www.linkedin.com/in/sebastianlev/">
-        <Icon.Linkedin />
-      </SocialNetwork>
-      <SocialNetwork url="https://github.com/lecav30">
-        <Icon.GitHub />
-      </SocialNetwork>
-      <SocialNetwork url="https://www.instagram.com/sebastian_lev9/">
-        <Icon.Instagram />
-      </SocialNetwork>
-    </div>
   </aside>
   <form class="flex flex-col gap-6 items-center w-full md:gap-12 lg:w-6/12">
-    <div class="flex md:flex-row flex-col gap-6 md:gap-24 md:w-5/6 w-10/12">
+    <div
+      class="flex flex-col gap-y-8 md:flex-row md:justify-between w-full"
+    >
       <div class="input-div">
         <label for="name">Name</label>
         <input class="input-style" type="text" id="name" name="name" required />
@@ -45,7 +28,7 @@ import * as Icon from "astro-feather-icons";
         />
       </div>
     </div>
-    <div class="flex flex-col w-10/12">
+    <div class="flex flex-col w-full">
       <label for="message">Message</label>
       <textarea
         class="input-style resize-y"
@@ -65,7 +48,7 @@ import * as Icon from "astro-feather-icons";
   .input-div {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 45%;
   }
 
   @media (max-width: 768px) {
