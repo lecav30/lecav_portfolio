@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, useState, useEffect } from "react";
 
 interface Props {
   title: string;
@@ -11,6 +11,21 @@ interface Props {
 const Card: FC<Props> = (props) => {
   const [showTechnologies, setShowTechnologies] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
+  const [screenWidth, setScreenWidth] = useState<number>(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  const isDesktop = screenWidth >= 1060;
 
   const handleShowAbout = () => {
     setShowAbout(!showAbout);
@@ -20,21 +35,49 @@ const Card: FC<Props> = (props) => {
     setShowTechnologies(!showTechnologies);
   };
 
+  if (isDesktop) {
+    return (
+      <div
+        className="rounded-xl shadow-lg hover:border-[#6600FF] hover:border-s-4
+        hover:border-b-[3px] min-h-[310px] relative border__show flex gap-12 py-5 px-10"
+      >
+        <div
+          id="presentation"
+          className="flex flex-col justify-center items-center gap-5"
+          onClick={handleShowAbout}
+        >
+          <h1 className="text-2xl text-center font-bold">{props.title}</h1>
+          <img
+            src={props.imageUrl}
+            alt={props.altImage}
+            className="w-48 mb-6"
+          />
+        </div>
+        <div id="about" className="p-4 flex flex-col gap-12">
+          <p className="mt-4 italic">{props.description}</p>
+          <div>
+            <p className="mb-4 font-semibold">Technologies that I have used:</p>
+            <ul id="skills" className="flex gap-4">
+              {props.skills.map((skill, index) => (
+                <li key={index}>{skill}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div
-      className="p-4 rounded-xl shadow-lg md:w-1/4 hover:border-[#6600FF]
-      hover:border-s-4 hover:border-b-[3px] min-h-[300px] min-w-[240px] max-w-[310px]
-      md:max-w-none relative"
+      className="p-4 rounded-xl shadow-lg hover:border-[#6600FF] hover:border-s-4
+      hover:border-b-[3px] min-h-[310px] min-w-[240px] max-w-[310px] relative border__show"
     >
-      <button onClick={handleShowAbout} className="w-8 absolute top-4 right-4">
-        <img src="src/assets/svg/information.svg" alt="Information" />
-      </button>
-      <br />
-      <br />
       {!showAbout && (
         <div
           id="presentation"
           className="flex flex-col justify-center items-center"
+          onClick={handleShowAbout}
         >
           <img
             src={props.imageUrl}
@@ -46,6 +89,13 @@ const Card: FC<Props> = (props) => {
       )}
       {showAbout && (
         <div id="about" className="p-4 flex flex-col">
+          <button
+            onClick={handleShowAbout}
+            className="w-8 absolute top-4 left-4"
+          >
+            <img src="src/assets/svg/corner-up-left.svg" alt="Back" />
+          </button>
+          <br />
           <h1 className="text-2xl">{props.title}</h1>
           <p className="mt-4">{props.description}</p>
           <button
