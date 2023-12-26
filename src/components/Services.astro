@@ -1,12 +1,14 @@
 ---
-import Card from "./Card.tsx";
+import Card from "./Card";
+import { Image } from "astro:assets";
+import Frontend from "../assets/image/frontend.png";
+import Backend from "../assets/image/backend.png";
+import Mobile from "../assets/image/mobile.png";
 ---
 
 <Card
   client:only
   title="Frontend Development"
-  imageUrl="src/assets/image/frontend.png"
-  altImage="Image of frontend develop from srip"
   description="My background in frontend development began in 2021 at the university, where I focused on the Angular and VueJS frameworks. Currently, I also have practical experience in ReactJS and NextJS through my professional work."
   skills={[
     "HTML",
@@ -20,12 +22,16 @@ import Card from "./Card.tsx";
     "VueJS",
     "Astro",
   ]}
-/>
+>
+  <Image
+    src={Frontend}
+    alt="Image of frontend develop from srip"
+    class="w-48 mb-6"
+  />
+</Card>
 <Card
   client:only
   title="Backend Development"
-  imageUrl="src/assets/image/backend.png"
-  altImage="Image of backend develop from Justicon"
   description="My foundational knowledge in backend development was established in 2021 through my university studies, primarily focusing on the ASP.NET and Spring Boot frameworks. Additionally, I gained hands-on experience with Flask while working on small university projects."
   skills={[
     "ASP.NET - C#",
@@ -35,12 +41,22 @@ import Card from "./Card.tsx";
     "PostgreSQL",
     "MongoDB",
   ]}
-/>
+>
+  <Image
+    src={Backend}
+    alt="Image of backend develop from Justicon"
+    class="w-48 mb-6"
+  />
+</Card>
 <Card
   client:only
   title="Mobile Development"
-  imageUrl="src/assets/image/mobile.png"
-  altImage="Image of frontend develop from feen"
   description="I embarked on my mobile development journey in 2022 at the university, mastering the Flutter framework. Furthermore, I've gained practical experience in React Native through my professional endeavors."
   skills={["Flutter - Dart", "React Native"]}
-/>
+>
+  <Image
+    src={Mobile}
+    alt="Image of frontend develop from feen"
+    class="w-48 mb-6"
+  />
+</Card>

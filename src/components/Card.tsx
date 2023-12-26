@@ -1,9 +1,9 @@
 import React, { FC, useState, useEffect } from "react";
+import Back from "../assets/svg/corner-up-left.svg";
 
 interface Props {
   title: string;
-  imageUrl: string;
-  altImage: string;
+  children?: React.ReactNode;
   description: string;
   skills: string[];
 }
@@ -47,11 +47,7 @@ const Card: FC<Props> = (props) => {
           onClick={handleShowAbout}
         >
           <h1 className="text-2xl text-center font-bold">{props.title}</h1>
-          <img
-            src={props.imageUrl}
-            alt={props.altImage}
-            className="w-48 mb-6"
-          />
+          {props.children}
         </div>
         <div id="about" className="p-4 flex flex-col gap-12">
           <p className="mt-4 italic">{props.description}</p>
@@ -79,11 +75,7 @@ const Card: FC<Props> = (props) => {
           className="flex flex-col justify-center items-center"
           onClick={handleShowAbout}
         >
-          <img
-            src={props.imageUrl}
-            alt={props.altImage}
-            className="w-48 mb-6"
-          />
+          {props.children}
           <h1 className="text-2xl text-center">{props.title}</h1>
         </div>
       )}
@@ -93,13 +85,14 @@ const Card: FC<Props> = (props) => {
             onClick={handleShowAbout}
             className="w-8 absolute top-4 left-4"
           >
-            <img src="src/assets/svg/corner-up-left.svg" alt="Back" />
+            <img src={Back.src} alt="Back" />
           </button>
           <br />
           <h1 className="text-2xl">{props.title}</h1>
           <p className="mt-4">{props.description}</p>
           <button
-            className="my-4 bg-[var(--main-color)] py-1 px-3 border border-black rounded-3xl text-white w-fit self-center"
+            className="my-4 bg-[#6600FF] py-1 px-3 border border-black
+            rounded-3xl text-white w-fit self-center"
             onClick={handleShowTechnologies}
           >
             Show technologies

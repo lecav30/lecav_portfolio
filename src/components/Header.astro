@@ -1,10 +1,12 @@
 ---
 import MenuIcon from "astro-feather-icons/Menu";
+import { Image } from "astro:assets";
+import Laptop from "../assets/svg/laptop.svg";
 ---
 
 <div class="flex gap-4 items-center">
   <a href="#hero">
-    <img src="src/assets/svg/laptop.svg" alt="Laptop" class="w-10" />
+    <Image class="w-10" src={Laptop} alt="Laptop" />
   </a>
 </div>
 <MenuIcon class="bars block cursor-pointer md:hidden" />
