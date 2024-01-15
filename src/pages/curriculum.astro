@@ -1,9 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import Resume from "../assets/pdf/Curriculum_Eduardo_Levano.pdf";
 ---
 
 <Layout title="Lecav's Resume">
-  <iframe
-    src="src/assets/pdf/Curriculum_Eduardo_Levano.pdf"
-    class="fixed top-0 left-0 w-screen h-screen"></iframe>
+  <iframe src={Resume} class="fixed top-0 left-0 w-screen h-screen"></iframe>
 </Layout>
