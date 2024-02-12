@@ -1,0 +1,21 @@
+---
+import Preview from "./Preview";
+import { Image } from "astro:assets";
+import Startpage from "../assets/image/startpage.png";
+---
+
+<div>
+  <h2 class="mb-10">Some of the projects I have done:</h2>
+  <div class="flex flex-col justify-center md:flex-row">
+    <Preview
+      client:only
+      description="Tired of messy bookmarks, I created Lecav Startpage, my own custom home page for the browser, which streamlines website access with a custom home page that includes my essential links."
+    >
+      <Image
+        src={Startpage}
+        alt="Lecav Startpage"
+        class="w-full h-full rounded-xl"
+      />
+    </Preview>
+  </div>
+</div>
