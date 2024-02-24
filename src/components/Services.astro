@@ -1,9 +1,9 @@
 ---
 import Card from "./Card";
 import { Image } from "astro:assets";
-import Frontend from "../assets/image/frontend.png";
-import Backend from "../assets/image/backend.png";
-import Mobile from "../assets/image/mobile.png";
+import Frontend from "../assets/astro/Frontend.astro";
+import Backend from "../assets/astro/Backend.astro";
+import Mobile from "../assets/astro/Mobile.astro";
 ---
 
 <Card
@@ -23,11 +23,7 @@ import Mobile from "../assets/image/mobile.png";
     "Astro",
   ]}
 >
-  <Image
-    src={Frontend}
-    alt="Image of frontend develop from srip"
-    class="w-48 mb-6"
-  />
+  <Frontend />
 </Card>
 <Card
   client:only
@@ -42,11 +38,7 @@ import Mobile from "../assets/image/mobile.png";
     "MongoDB",
   ]}
 >
-  <Image
-    src={Backend}
-    alt="Image of backend develop from Justicon"
-    class="w-48 mb-6"
-  />
+  <Backend />
 </Card>
 <Card
   client:only
@@ -54,9 +46,5 @@ import Mobile from "../assets/image/mobile.png";
   description="I embarked on my mobile development journey in 2022 at the university, mastering the Flutter framework. Furthermore, I've gained practical experience in React Native through my professional endeavors."
   skills={["Flutter - Dart", "React Native"]}
 >
-  <Image
-    src={Mobile}
-    alt="Image of frontend develop from feen"
-    class="w-48 mb-6"
-  />
+  <Mobile />
 </Card>

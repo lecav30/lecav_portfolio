@@ -1,9 +1,9 @@
 ---
 import { Image } from "astro:assets";
-import NextJS from "../assets/svg/nextjs.svg";
-import React from "../assets/svg/reactjs.svg";
-import TailwindCSS from "../assets/svg/tailwindcss.svg";
-import Azure from "../assets/svg/azure.svg";
+import NextJS from "../assets/astro/NextJS.astro";
+import React from "../assets/astro/React.astro";
+import TailwindCSS from "../assets/astro/TailwindCSS.astro";
+import Azure from "../assets/astro/Azure.astro";
 ---
 
 <ol class="relative border-l-2 border-gray-700 h-fit">
@@ -29,10 +29,10 @@ import Azure from "../assets/svg/azure.svg";
     <div class="flex items-center">
       <p class="pr-5">Stack:</p>
       <div class="flex items-center gap-x-8 flex-wrap">
-        <Image class="w-8" src={NextJS} alt="Next.js" />
-        <Image class="w-8" src={React} alt="React" />
-        <Image class="w-8" src={TailwindCSS} alt="Tailwindcss" />
-        <Image class="w-8" src={Azure} alt="Azure" />
+        <NextJS />
+        <React />
+        <TailwindCSS />
+        <Azure />
       </div>
     </div>
   </li>

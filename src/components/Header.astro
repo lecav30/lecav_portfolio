@@ -1,21 +1,22 @@
 ---
 import MenuIcon from "astro-feather-icons/Menu";
+import ThemeIcon from "./ThemeIcon.astro";
 import { Image } from "astro:assets";
-import Laptop from "../assets/svg/laptop.svg";
+import Laptop from "../assets/astro/Laptop.astro";
 ---
 
 <div class="flex gap-4 items-center">
   <a href="#hero">
-    <Image class="w-10" src={Laptop} alt="Laptop" />
+    <Laptop />
   </a>
 </div>
 <MenuIcon class="bars block cursor-pointer md:hidden" />
 <nav
   id="navbar"
-  class="navbar absolute top-20 left-0 h-0 w-screen overflow-hidden bg-white md:bg-inherit md:static md:w-auto md:h-auto md:overflow-visible"
+  class="navbar absolute top-20 left-0 h-0 w-screen overflow-hidden md:bg-inherit md:static md:w-auto md:h-auto md:overflow-visible"
 >
   <ul
-    class="flex flex-col items-center md:opacity-100 md:flex-row gap-20 font-semibold text-xl scroll-smooth"
+    class="flex flex-col items-center md:opacity-100 md:flex-row gap-16 font-semibold scroll-smooth"
   >
     <li>
       <a class="scrollto active mb-5 md:mb-0" href="#hero">Home</a>
@@ -30,10 +31,17 @@ import Laptop from "../assets/svg/laptop.svg";
       <a class="scrollto mb-5 md:mb-0" href="#projects">Projects</a>
     </li>
     <li><a class="scrollto mb-5 md:mb-0" href="#contact">Contact</a></li>
+    <li>
+      <ThemeIcon />
+    </li>
   </ul>
 </nav>
 
 <style>
+  .navbar {
+    background-color: white;
+  }
+
   .navbar ul li a.active,
   .navbar ul li a:hover {
     border-bottom: 0.2rem solid var(--main-color);
@@ -61,6 +69,10 @@ import Laptop from "../assets/svg/laptop.svg";
       100% {
         height: 0;
       }
+    }
+
+    :global(.dark) .navbar {
+      background-color: #131313;
     }
 
     .header.show-nav {

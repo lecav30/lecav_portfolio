@@ -57,12 +57,18 @@ import Contact from "../components/Contact.astro";
   };
 
   let bars = select(".bars");
+  let header = select(".header");
+  let navbar = select(".navbar");
+
   bars.addEventListener("click", () => {
-    let navbar = select(".navbar");
-    let header = select(".header");
     navbar.classList.toggle("active");
     navbar.classList.add("hide");
     header.classList.toggle("show-nav");
+    header.classList.toggle("backdrop-blur-md");
+    header.classList.toggle("bg-[#131313]");
+    if (document.body.style.overflow != "hidden")
+      document.body.style.overflow = "hidden";
+    else document.body.style.overflow = "auto";
   });
 
   const onscroll = (el, listener) => {
@@ -74,8 +80,6 @@ import Contact from "../components/Contact.astro";
   const close_navbar = () => {
     navbar_links.forEach((navbar_link) => {
       navbar_link.addEventListener("click", () => {
-        let navbar = select(".navbar");
-        let header = select(".header");
         navbar.classList.remove("active");
         header.classList.remove("show-nav");
       });

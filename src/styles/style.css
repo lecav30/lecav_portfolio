@@ -10,6 +10,41 @@ body {
   min-width: 320px;
 }
 
+html.dark {
+  background-color: #131313;
+  color: #fff;
+}
+
+.dark .nav-links a {
+  color: #fff;
+}
+
+.ligth__svg {
+  fill: black;
+}
+.ligth__svg__stroke {
+  stroke: black;
+}
+.dark__svg {
+  fill: transparent;
+}
+.dark__svg__stroke {
+  stroke: transparent;
+}
+
+.dark .ligth__svg {
+  fill: transparent;
+}
+.dark .ligth__svg__stroke {
+  stroke: transparent;
+}
+.dark .dark__svg {
+  fill: white;
+}
+.dark .dark__svg__stroke {
+  stroke: white;
+}
+
 .bg__show {
   transition: background-color 0.2s ease-in-out;
 }

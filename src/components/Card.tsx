@@ -1,5 +1,4 @@
 import React, { FC, useState, useEffect } from "react";
-import Back from "../assets/svg/corner-up-left.svg";
 
 interface Props {
   title: string;
@@ -85,7 +84,29 @@ const Card: FC<Props> = (props) => {
             onClick={handleShowAbout}
             className="w-8 absolute top-4 left-4"
           >
-            <img src={Back.src} alt="Back" />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <polyline
+                className="light__svg"
+                fill="#000"
+                points="9 14 4 9 9 4"
+              ></polyline>
+              <polyline
+                className="dark__svg"
+                fill="#fff"
+                points="9 14 4 9 9 4"
+              ></polyline>
+              <path d="M20 20v-7a4 4 0 0 0-4-4H4"></path>
+            </svg>
           </button>
           <br />
           <h1 className="text-2xl">{props.title}</h1>
