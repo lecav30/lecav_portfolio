@@ -38,10 +38,6 @@ import Laptop from "../assets/astro/Laptop.astro";
 </nav>
 
 <style>
-  .navbar {
-    background-color: white;
-  }
-
   .navbar ul li a.active,
   .navbar ul li a:hover {
     border-bottom: 0.2rem solid var(--main-color);
@@ -69,6 +65,10 @@ import Laptop from "../assets/astro/Laptop.astro";
       100% {
         height: 0;
       }
+    }
+
+    .navbar {
+      background-color: white;
     }
 
     :global(.dark) .navbar {
