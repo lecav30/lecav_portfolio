@@ -19,10 +19,10 @@ html.dark {
   color: #fff;
 }
 
-.ligth__svg {
+.light__svg {
   fill: black;
 }
-.ligth__svg__stroke {
+.light__svg__stroke {
   stroke: black;
 }
 .dark__svg {
@@ -32,10 +32,10 @@ html.dark {
   stroke: transparent;
 }
 
-.dark .ligth__svg {
+.dark .light__svg {
   fill: transparent;
 }
-.dark .ligth__svg__stroke {
+.dark .light__svg__stroke {
   stroke: transparent;
 }
 .dark .dark__svg {

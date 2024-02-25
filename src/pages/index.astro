@@ -56,19 +56,55 @@ import Contact from "../components/Contact.astro";
     }
   };
 
+  let theme = (() => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return "dark";
+    }
+    return "light";
+  })();
+
+  if (theme === "light") {
+    document.documentElement.classList.remove("dark");
+  } else {
+    document.documentElement.classList.add("dark");
+  }
+
+  window.localStorage.setItem("theme", theme);
+
   let bars = select(".bars");
   let header = select(".header");
   let navbar = select(".navbar");
+  let themeToggle = select("#themeToggle");
+  let width = window.innerWidth;
+
+  const open_navbar = () => {
+    document.body.style.overflow = "hidden";
+    navbar.classList.add("show-nav");
+    navbar.classList.remove("hide");
+    navbar.classList.toggle("active");
+    header.classList.remove("backdrop-blur-md");
+
+    if (theme === "light") header.classList.add("bg-white");
+    if (theme === "dark") header.classList.add("bg-[#131313]");
+  };
+
+  const close_navbar = () => {
+    document.body.style.overflow = "auto";
+    navbar.classList.add("hide");
+    navbar.classList.remove("show-nav");
+    navbar.classList.toggle("active");
+    header.classList.add("backdrop-blur-md");
+
+    if (theme === "light") header.classList.remove("bg-white");
+    if (theme === "dark") header.classList.remove("bg-[#131313]");
+  };
 
   bars.addEventListener("click", () => {
-    navbar.classList.toggle("active");
-    navbar.classList.add("hide");
-    header.classList.toggle("show-nav");
-    header.classList.toggle("backdrop-blur-md");
-    header.classList.toggle("bg-[#131313]");
-    if (document.body.style.overflow != "hidden")
-      document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "auto";
+    const isActive = navbar.classList.contains("active");
+    isActive ? close_navbar() : open_navbar();
   });
 
   const onscroll = (el, listener) => {
@@ -77,16 +113,11 @@ import Contact from "../components/Contact.astro";
 
   let navbar_links = select(".scrollto", true);
 
-  const close_navbar = () => {
-    navbar_links.forEach((navbar_link) => {
-      navbar_link.addEventListener("click", () => {
-        navbar.classList.remove("active");
-        header.classList.remove("show-nav");
-      });
+  navbar_links.forEach((navbar_link) => {
+    navbar_link.addEventListener("click", () => {
+      close_navbar();
     });
-  };
-
-  close_navbar();
+  });
 
   const navbar_links_active = () => {
     let position = window.scrollY + 200;
@@ -108,6 +139,20 @@ import Contact from "../components/Contact.astro";
       }
     });
   };
+
+  themeToggle.addEventListener("click", () => {
+    const element = document.documentElement;
+    element.classList.toggle("dark");
+
+    const isDark = element.classList.contains("dark");
+
+    if (width <= 768) {
+      close_navbar();
+    }
+
+    theme = isDark ? "dark" : "light";
+    localStorage.setItem("theme", theme);
+  });
 
   window.addEventListener("load", navbar_links_active);
   onscroll(document, navbar_links_active);
