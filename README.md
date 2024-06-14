@@ -1,3 +1,5 @@
+# I WON'T USE THIS REPO FOR FUTURE UPDATES TO MY PORTFOLIO
+
 # Astro Starter Kit: Minimal
 
 ```
